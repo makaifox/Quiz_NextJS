@@ -9,6 +9,8 @@ import Footer from '../src/components/Footer';
 import GitHubCorner from '../src/components/GitHubCorner';
 import QuizBackground from '../src/components/QuizBackground';
 import QuizLogo from '../src/components/QuizLogo';
+import Input from '../src/components/Input';
+import Button from '../src/components/Button';
 
 const Title = styled.h1`
   font-size: 50px;
@@ -22,7 +24,7 @@ const Title = styled.h1`
 //   background-position: center;
 // `;
 
-export const QuizContainer = styled.div`
+ const QuizContainer = styled.div`
   width: 100%;
   max-width: 350px;
   padding-top: 45px;
@@ -57,18 +59,15 @@ export default function Home() {
               console.log('Fazendo um submit');
             }}
             >
-              <input
-               onChange={function (infosDoEvento) {
-                 console.log(infosDoEvento.target.value);
-                 //state
-                //name =  infosDoEvento.target.value;
-                setName(infosDoEvento.target.value);
-               }} placeholder="Diz ai seu nome" 
-               />
-              <button type="submit" disabled={name.length === 0}>
-                Jogar 
-                {name}
-              </button>
+              <Input
+                name="nomeDoUsuario"
+                onChange={(infosDoEvento) =>  setName(infosDoEvento.target.value)} 
+                placeholder="Diz ai seu nome" 
+                value={name}
+              />
+              <Button type="submit" disabled={name.length === 0}>
+                {`Jogar ${name}` } 
+              </Button>
            </form>
           </Widget.Content>
 
